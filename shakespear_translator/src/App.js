@@ -1,18 +1,58 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { navbar} from './bootstrap.min.css';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a className="navbar-brand" href="#">Speak Shakespeare</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+
+            <div className="collapse navbar-collapse" id="navbarColor01">
+              <ul className="navbar-nav mr-auto">
+                <li className="nav-item active">
+                </li>
+                <li className="nav-item">
+                </li>
+                <li className="nav-item">
+                </li>
+                <li className="nav-item">
+                </li>
+              </ul>
+              <form className="form-inline my-2 my-lg-0">
+                <input className="form-control mr-sm-2" type="text" placeholder="Search" />
+                <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </div>
+        </nav>
+        <br />
+        <div className="alert alert-dismissible alert-success">
+          <button type="button" className="close" data-dismiss="alert" aria-label="close">&times;</button>
+          <strong>Welcome!</strong> To get started, please enter any sentence or large chunk of modern English and we will translate it to Shakespeare.
+        </div>
+        <p>
+            Convert from English to Shakespeare. Shakespeare invented many words and his style of
+            narration in many ways was unique to his time. His ever popular works ( dramas and poems )
+            makes his language style live even today. This translator takes English as input and converts
+            to Shakespeare English.
         </p>
+        <div className="input-group">
+          <div className="input-group-prepend">
+            <span className="input-group-text">Enter your words here→</span>
+          </div>
+          <textarea
+            rows="4"
+            cols="50"
+            className="form-control"
+            aria-label="With textarea"></textarea>
+        </div>
+        <button
+            type="button"
+            className="btn btn-primary btn-lg">Block level button</button>
       </div>
     );
   }
