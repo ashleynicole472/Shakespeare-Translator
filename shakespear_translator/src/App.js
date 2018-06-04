@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { navbar} from './bootstrap.min.css';
+import AUX from './hoc/AUX';
+import {
+    navbar,
+    alert,
+    textarea,
+    button
+    } from './bootstrap.min.css';
 import shakespeare from './images/shakespeare.jpg';
 import shakeOne from './images/shake-quote.png';
 import shakeTwo from './images/quote-shake.png';
@@ -56,62 +62,78 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a className="navbar-brand" href="#">Speak Shakespeare</a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
+        <AUX>
+        <div className="App">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a className="navbar-brand" href="#">Speak Shakespeare</a>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
 
-            <div className="collapse navbar-collapse" id="navbarColor01">
-              <ul className="navbar-nav mr-auto">
-                <li className="nav-item active">
-                </li>
-                <li className="nav-item">
-                </li>
-                <li className="nav-item">
-                </li>
-                <li className="nav-item">
-                </li>
-              </ul>
+                <div className="collapse navbar-collapse" id="navbarColor01">
+                    <ul className="navbar-nav mr-auto">
+                        <li className="nav-item active">
+                        </li>
+                        <li className="nav-item">
+                        </li>
+                        <li className="nav-item">
+                        </li>
+                        <li className="nav-item">
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div className="container">
+                <div className="row">
+                    <div className="col-xs-12">
+                        <img src={shakeOne} alt="Another quote by shakespeare" />
+                        <img src={shakespeare} alt="photo of shakespeare" />
+                        <img src={shakeTwo} alt="quote by shakespeare" />
+                    </div>
+                    <div className="col-sm-12">
+                        <h4 className="paragraph">
+                            Convert from English to Shakespeare. Shakespeare invented many words and his style of
+                            narration in many ways was unique to his time. His ever popular works ( dramas and poems )
+                            makes his language style live even today. This translator takes English as input and converts
+                            to Shakespeare English.
+                        </h4>
+                    </div>
+                    <div className="col-sm-12">
+                        <div className="input-group">
+                            <div className="input-group-prepend">
+                                <span className="input-group-text">Enter your words here→</span>
+                            </div>
+                            <textarea
+                                onChange={this.textareaHandleChange}
+                                rows="4"
+                                cols="50"
+                                className="form-control"
+                                aria-label="With textarea">
+                            </textarea>
+                        </div>
+                        <br />
+                        <button
+                            type="button"
+                            onClick={this.speak}
+                            className="btn btn-primary btn-lg">--Submit--</button>
+                    </div>
+                    <div className="col-sm-4">
+                    </div>
+                    <br/>
+                    <div className="col-sm-5">
+                        <div className="card text-white bg-dark mb-3">
+                            <div className="card-header">Your Translated Text</div>
+                                <div className="card-body">
+                                    <h3 className="text-primary">{this.state.shakespeareText}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-sm-3">
+                    </div>
+                </div>
             </div>
-        </nav>
-        <br />
-        <div className="alert alert-dismissible alert-success">
-          <button type="button" className="close" data-dismiss="alert" aria-label="close">&times;</button>
-          <p>Welcome! To get started, enter any sentence of modern English and we will translate it to Shakespeare!</p>
-        </div>
-        <div className="col-md-12">
-            <img src={shakeOne} alt="photo of shakespeare" />
-            <img src={shakespeare} alt="photo of shakespeare" />
-            <img src={shakeTwo} alt="photo of shakespeare" />
-        </div>
-        <h4 className="paragraph">
-            Convert from English to Shakespeare. Shakespeare invented many words and his style of
-            narration in many ways was unique to his time. His ever popular works ( dramas and poems )
-            makes his language style live even today. This translator takes English as input and converts
-            to Shakespeare English.
-        </h4>
-        <div className="input-group">
-          <div className="input-group-prepend">
-            <span className="input-group-text">Enter your words here→</span>
-          </div>
-          <textarea
-            onChange={this.textareaHandleChange}
-            rows="4"
-            cols="50"
-            className="form-control"
-            aria-label="With textarea"></textarea>
-        </div>
-        <button
-            type="button"
-            onClick={this.speak}
-            className="btn btn-primary btn-lg">--Submit--</button>
-            <br />
-        <div className="well">
-            <h3 className="text-primary">{this.state.shakespeareText}</h3>
-        </div>
-      </div>
+        </AUX>
     );
   }
 }
