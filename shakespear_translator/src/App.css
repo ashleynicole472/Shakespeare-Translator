@@ -13,6 +13,16 @@
   background-size: contain;
   top: 0;
   left: 0;
+  font-family: 'Neuton', serif;
+}
+
+.paragraph {
+    margin: 10px;
+    color: #272525;
+}
+
+.alert {
+    font-size: 25px;
 }
 
 .App-logo {

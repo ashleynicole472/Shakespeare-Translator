@@ -79,19 +79,19 @@ class App extends Component {
         <br />
         <div className="alert alert-dismissible alert-success">
           <button type="button" className="close" data-dismiss="alert" aria-label="close">&times;</button>
-          <strong>Welcome!</strong> To get started, please enter any sentence or large chunk of modern English and we will translate it to Shakespeare.
+          <p>Welcome! To get started, enter any sentence of modern English and we will translate it to Shakespeare!</p>
         </div>
         <div className="col-md-12">
             <img src={shakeOne} alt="photo of shakespeare" />
             <img src={shakespeare} alt="photo of shakespeare" />
             <img src={shakeTwo} alt="photo of shakespeare" />
         </div>
-        <p>
+        <h4 className="paragraph">
             Convert from English to Shakespeare. Shakespeare invented many words and his style of
             narration in many ways was unique to his time. His ever popular works ( dramas and poems )
             makes his language style live even today. This translator takes English as input and converts
             to Shakespeare English.
-        </p>
+        </h4>
         <div className="input-group">
           <div className="input-group-prepend">
             <span className="input-group-text">Enter your words here→</span>
@@ -106,7 +106,7 @@ class App extends Component {
         <button
             type="button"
             onClick={this.speak}
-            className="btn btn-primary btn-lg">Block level button</button>
+            className="btn btn-primary btn-lg">--Submit--</button>
             <br />
         <div className="well">
             <h3 className="text-primary">{this.state.shakespeareText}</h3>
