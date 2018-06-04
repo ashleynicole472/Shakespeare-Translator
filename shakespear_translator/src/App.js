@@ -19,6 +19,29 @@ class App extends Component {
         console.log(this.state.userText);
     }
 
+    speak = () => {
+        let { userText } = this.state
+        let URL = `https://shakespeare.p.mashape.com/shakespeare.json?text=${user}`;
+
+        var newHeaders = new Headers({
+            "X-Mashape-Key": "Ma9KTYWObTmshpd7HvSsw6hea2dCp1DteDujsnmVQG8WQBwPo0"
+        });
+
+        let config = {
+            method: 'GET',
+            headers: newHeaders
+        }
+
+        fetch(URL,config)
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((error) => {
+            console.log(error);
+            console.log("Someting wong");
+        })
+    }
+
   render() {
     return (
       <div className="App">
@@ -69,6 +92,7 @@ class App extends Component {
         </div>
         <button
             type="button"
+            onClick={this.speak}
             className="btn btn-primary btn-lg">Block level button</button>
       </div>
     );
