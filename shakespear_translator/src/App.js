@@ -3,6 +3,22 @@ import { navbar} from './bootstrap.min.css';
 import './App.css';
 
 class App extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            userText: ''
+        }
+        this.textareaHandleChange = this.textareaHandleChange.bind(this);
+    }
+
+    textareaHandleChange = (event) => {
+        console.log("in text area");
+        this.setState({
+            userText: event.target.value
+        })
+        console.log(this.state.userText);
+    }
+
   render() {
     return (
       <div className="App">
@@ -45,6 +61,7 @@ class App extends Component {
             <span className="input-group-text">Enter your words here→</span>
           </div>
           <textarea
+            onChange={this.textareaHandleChange}
             rows="4"
             cols="50"
             className="form-control"
